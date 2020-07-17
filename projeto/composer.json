@@ -1,0 +1,22 @@
+{
+    "name": "gabriel/projeto",
+    "authors": [
+        {
+            "name": "Gabriel Alves",
+            "email": "batistaalvesg@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files": [
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "coffeecode/router": "^1.0",
+        "league/plates": "^3.3",
+        "coffeecode/datalayer": "^1.1"
+    }
+}
