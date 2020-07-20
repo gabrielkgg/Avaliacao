@@ -25,16 +25,16 @@
       });
     </script>
     <!-- Dashboard Core -->
-    <link href="<?=$url?>/assets/css/dashboard.css" rel="stylesheet" />
-    <script src="<?=$url?>/assets/js/dashboard.js"></script>
+    <link href="<?=ROOT?>/assets/css/dashboard.css" rel="stylesheet" />
+    <script src="<?=ROOT?>/assets/js/dashboard.js"></script>
     <!-- c3.js Charts Plugin -->
-    <link href="<?=$url?>/assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
-    <script src="<?=$url?>/assets/plugins/charts-c3/plugin.js"></script>
+    <link href="<?=ROOT?>/assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+    <script src="<?=ROOT?>/assets/plugins/charts-c3/plugin.js"></script>
     <!-- Google Maps Plugin -->
-    <link href="<?=$url?>/assets/plugins/maps-google/plugin.css" rel="stylesheet" />
-    <script src="<?=$url?>/assets/plugins/maps-google/plugin.js"></script>
+    <link href="<?=ROOT?>/assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+    <script src="<?=ROOT?>/assets/plugins/maps-google/plugin.js"></script>
     <!-- Input Mask Plugin -->
-    <script src="<?=$url?>/assets/plugins/input-mask/plugin.js"></script>
+    <script src="<?=ROOT?>/assets/plugins/input-mask/plugin.js"></script>
   </head>
   <body class="">
     <div class="page">
@@ -76,16 +76,16 @@
               <div class="col-lg order-lg-first">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link"><i class="fe fe-home"></i> Home</a>
+                    <a href="<?= ROOT ?>/" class="nav-link"><i class="fe fe-home"></i> Home</a>
                   </li>
 		  <li class="nav-item">
-                    <a href="./produtos" class="nav-link active"><i class="fe fe-package"></i> Produtos</a>
+                    <a href="<?= ROOT ?>/produtos" class="nav-link active"><i class="fe fe-package"></i> Produtos</a>
                   </li>
 		  <li class="nav-item">
-                    <a href="./form-venda.html" class="nav-link"><i class="fe fe-dollar-sign"></i> Venda</a>
+                    <a href="<?= ROOT ?>/form-venda" class="nav-link"><i class="fe fe-dollar-sign"></i> Venda</a>
                   </li>
 		  <li class="nav-item">
-                    <a href="./produtos-excluidos.html" class="nav-link"><i class="fe fe-trash"></i> Lixeira</a>
+                    <a href="<?= ROOT ?>/produtos-excluidos" class="nav-link"><i class="fe fe-trash"></i> Lixeira</a>
                   </li>
                 </ul>
               </div>
@@ -96,7 +96,7 @@
           <div class="container">
             <div class="row">              
             <div class="col-lg-12">
-                <form class="card" action="<?=$url ?>/form-produto-edit" method="POST">
+                <form class="card" action="<?= ROOT ?>/form-produto-edit" method="POST">
                     <div class="card-body">
                       <h3 class="card-title">Editar produto - <?= $product["descricao"]?></h3>
                       <div class="row">
@@ -134,7 +134,7 @@
                     </div>
                     <div class="card-footer text-left" style="display: flex; justify-content: space-between">
                       <div>
-                        <a href="<?=$url?>/produtos" class="btn btn-secondary">Voltar para produtos</a>
+                        <a href="<?= ROOT ?>/produtos" class="btn btn-secondary">Voltar para produtos</a>
                       </div>
                       <div>
                         <button type="submit" class="btn btn-primary">Confirmar alteração</button>

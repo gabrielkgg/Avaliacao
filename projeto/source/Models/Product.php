@@ -16,7 +16,14 @@ class Product extends Connection
             $sql = "SELECT count(*) as productsCount FROM products WHERE status != 2";
         }
         else{
-            $sql = "SELECT * FROM products WHERE status != 2";
+            $sql = "SELECT products.*, 
+                           SUM(sales.quantidade * sales.valor_unitario) as total_vendas,
+                           DATE_FORMAT(data_ultima_venda, '%d/%m/%Y') as data_ultima_venda
+                      FROM products 
+                 LEFT JOIN sales
+                        ON products.id = sales.id_product
+                     WHERE status != 2
+                  GROUP BY sales.id_product";
         }
         $data = $this->conexao->query($sql);
         
@@ -64,6 +71,28 @@ class Product extends Connection
         $stmt->bindParam(':estoque', $data["estoque"]);
         $stmt->bindParam(':codigo_barras', $data["codigo_barras"]);
         
+        return $stmt->execute();
+    }
+    
+    public function excluidosView(){
+        $sql = "SELECT * FROM products WHERE status = 2";
+        
+        $data = $this->conexao->query($sql);
+        
+        return $data->fetchAll();
+    }
+    
+    public function delete($id){
+        $sql = "UPDATE products SET status = 2 WHERE id = :id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+    
+    public function restore($id){
+        $sql = "UPDATE products SET status = 1 WHERE id = :id";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
 }

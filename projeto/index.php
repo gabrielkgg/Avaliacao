@@ -22,6 +22,15 @@ $router->group("form-produto");
 $router->get("/", "Web:productAdd");
 $router->post("/", "Web:productAddPost");
 
+$router->group("form-venda");
+$router->get("/", "Web:saleView");
+$router->post("/", "Web:saleAdd");
+
+$router->group("produtos-excluidos");
+$router->get("/", "Web:excluidosView");
+$router->post("/delete", "Web:excluidosDelete", "form.delete");
+$router->post("/restore", "Web:excluidosRestore", "form.restore");
+
 $router->dispatch();
 
 if($router->error()){
